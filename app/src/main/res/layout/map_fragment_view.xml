@@ -38,8 +38,22 @@
             android:layout_height="64dp"
             android:textAlignment="center"
             android:text="@{viewModel.clickedOnMarker.title}"
-            android:background="#E04242"
+            android:background="#098AF1"
+            android:textColor="#FFFCFC"
             android:padding="20dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+            />
+
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@{viewModel.clickedOnMarker.subtitle}"
+            android:background="#F3F3F5"
+            android:textColor="@color/black"
+            android:padding="20dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
             />
 
         <TextView
@@ -48,27 +62,46 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="@{viewModel.clickedOnMarker.icon}"
-            android:background="#3957DD"
+            android:background="#F3F3F5"
+            android:textColor="@color/black"
             android:padding="20dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
             />
-        <TextView
-            android:id="@+id/subtitle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="@{viewModel.clickedOnMarker.subtitle}"
-            android:background="#3957DD"
-            android:padding="20dp"
-            />
+
         <TextView
             android:id="@+id/description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="@{viewModel.clickedOnMarker.description}"
-            android:background="#3957DD"
+            android:background="#F3F3F5"
+            android:textColor="@color/black"
             android:padding="20dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
             />
+        <TextView
+            android:id="@+id/created_at"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@{viewModel.clickedOnMarker.created_at}"
+            android:background="#F3F3F5"
+            android:textColor="@color/black"
+            android:padding="20dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            />
+        <TextView
+            android:id="@+id/updated_at"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="@{viewModel.clickedOnMarker.updated_at}"
+            android:background="#F3F3F5"
+            android:textColor="@color/black"
+            android:padding="20dp"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
+            />
+
 
     </androidx.appcompat.widget.LinearLayoutCompat>
 
