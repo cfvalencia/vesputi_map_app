@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Vesputi challenge app</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiY2Z2YWxlbjkyNzciLCJhIjoiY2tvZWxjdTFsMDdwejJucXMwcXV4MHExMSJ9.AYuaDQt-vRQkY6YH2DVT7w</string>
+</resources>
