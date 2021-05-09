@@ -1,6 +1,6 @@
 # Vesputi Map App
 
-Challenge App From Vesputi team (ADD URL). This app loads a list of locations from a given URL it thatn saves that data to a persistent room database. The app loads a map created using Mapbox SDK and displays the positions as Markers. Users are expected to click on the markers and a BottomSheetView should display specific marker information.
+Challenge App From Vesputi team (https://www.vesputi.com/). This app loads a list of locations from a given URL it thatn saves that data to a persistent room database. The app loads a map created using Mapbox SDK and displays the positions as Markers. Users are expected to click on the markers and a BottomSheetView should display specific marker information.
 
 The main-Screen is a full screen map view with a few markers. 
 
@@ -17,22 +17,23 @@ The main-Screen is a full screen map view with a few markers.
 
 # Libraries 
 
-- Retrofit : 
-- Material :
-- Room :
-- MapBox :
-- Moshi:
+- Retrofit : https://square.github.io/retrofit/
+- Material : https://material.io/
+- Room : https://developer.android.com/jetpack/androidx/releases/room?gclid=CjwKCAjwkN6EBhBNEiwADVfya29LN9ghpsFwJbNWhrS3evvi_k93VmqD9XxwYKz61Lu6tzNHCGOcxRoCpEoQAvD_BwE&gclsrc=aw.ds
+- MapBox : https://www.mapbox.com/
+- Moshi: https://github.com/square/moshi
 
-# MVVM Pattern used 
+# MVVM Pattern  
 
-- 
+- ![mvvm-architecture](https://user-images.githubusercontent.com/25370892/117573434-62ddf700-b09d-11eb-8336-dcf7ea9a16f4.png)
+
 
 # Achievied Requierements
 
 - Create map using Mapbox-SDK
 - Add markers from URL
 - On marker clicked: display marker specific info
-- 
+
 
 # Improvements 
 
