@@ -18,10 +18,8 @@
         android:id="@+id/mapView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        mapbox:mapbox_cameraZoom="20"
         mapbox:mapbox_cameraTargetLat="51.3144"
         mapbox:mapbox_cameraTargetLng="12.4092"
-
         />
 
     <androidx.appcompat.widget.LinearLayoutCompat

@@ -20,31 +20,16 @@ class MapViewModel(application: Application): AndroidViewModel(application) {
     val clickedOnMarker: LiveData<Location>
         get() = _clikedOnMarker
 
-
-    init {
-        getLocationsFromDb()
-        getLocationsFromServer()
-    }
-
     val locationsList = locationsRepository.locations
 
-
-    private fun getLocationsFromDb() {
-        viewModelScope.launch {
-            try {
-                locationsRepository.getLocationFromDb()
-            } catch (e: Exception) {
-                Log.e("ERROR: ",e.toString())
-            }
-        }
-
+    init {
+        getLocationsFromServer()
     }
 
     private fun getLocationsFromServer() {
         viewModelScope.launch {
             try {
                 locationsRepository.getLocations()
-                Log.e("PULLL: ","WORKED FROM SERVER")
             } catch (e: Exception) {
                 Log.e("ERROR: ",e.toString())
             }

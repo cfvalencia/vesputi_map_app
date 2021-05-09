@@ -1,6 +1,5 @@
 package com.example.vesputichallengeapp.util
 
-import android.util.Log
 import com.example.vesputichallengeapp.database.LocationEntity
 import com.example.vesputichallengeapp.domain.Location
 import com.google.gson.JsonObject
@@ -34,13 +33,12 @@ fun locationsToFeatures(locations: List<LocationEntity>): List<Feature> {
         featureList.add(feature)
     }
 
-    Log.e("TEST CONVERTER", featureList.toString())
     return featureList
 
 }
 
 fun featurePropertiesToLocation(featureProperties: JsonObject): Location{
-    val location = Location(
+    return Location(
         featureProperties.get("id").toString(),
         featureProperties.get("icon").toString(),
         featureProperties.get("title").toString(),
@@ -54,6 +52,5 @@ fun featurePropertiesToLocation(featureProperties: JsonObject): Location{
         featureProperties.get("updated_at").toString(),
         "SimplePoi"
     )
-    return location
 }
 
