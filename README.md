@@ -40,6 +40,7 @@ MVVM Pattern allows easy separation of the business and presentation logic from 
 # Improvements 
 
 - Manage screen rotations 
+- Show info depending on phone language
 - UI/UX is very basic and has the views as offered by default 
 - Add Unit test
 - Improve marker click  
