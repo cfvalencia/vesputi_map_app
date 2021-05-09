@@ -25,7 +25,9 @@ The main-Screen is a full screen map view with a few markers.
 
 # MVVM Pattern  
 
-- ![mvvm-architecture](https://user-images.githubusercontent.com/25370892/117573434-62ddf700-b09d-11eb-8336-dcf7ea9a16f4.png)
+MVVM Pattern allows easy separation of the business and presentation logic from the UI, This image shows the architecture.
+
+![mvvm-architecture](https://user-images.githubusercontent.com/25370892/117573434-62ddf700-b09d-11eb-8336-dcf7ea9a16f4.png)
 
 
 # Achievied Requierements
