@@ -1,5 +1,6 @@
 package com.example.vesputichallengeapp.repository
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import com.example.vesputichallengeapp.database.LocationEntity
 import com.example.vesputichallengeapp.database.LocationsDatabase
@@ -17,6 +18,8 @@ class LocationsRepository(private val database: LocationsDatabase) {
     suspend fun getLocations(){
         withContext(Dispatchers.IO){
             val locationsList = LocationsApi.retrofitService.getProperties()
+            val locationsListTwo = LocationsApi.retrofitService.getPropertiesTwo()
+            //Log.e("LOCATION TWO", locationsListTwo.toString())
             database.locationDao.insertAll(*NetworkLocationsContainer(locationsList).asDataBaseModel())
         }
     }

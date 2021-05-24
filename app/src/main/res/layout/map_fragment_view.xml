@@ -22,12 +22,21 @@
         mapbox:mapbox_cameraTargetLng="12.4092"
         />
 
+    <com.mapbox.mapboxsdk.maps.MapView
+        android:id="@+id/mapViewTwo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        mapbox:mapbox_cameraTargetLat="51.3144"
+        mapbox:mapbox_cameraTargetLng="12.4092"
+        />
+
     <androidx.appcompat.widget.LinearLayoutCompat
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:id="@+id/bottom_sheet_view"
+        android:visibility="gone"
         app:behavior_hideable="true"
         app:behavior_peekHeight="64dp"
         app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">

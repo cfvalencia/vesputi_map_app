@@ -6,6 +6,7 @@ import kotlinx.android.parcel.Parcelize
 
 
 data class NetworkLocationsContainer(val locations: List<Location>)
+data class NetworkLocationsTwoContainer(val locations: List<LocationTwo>)
 
 @Parcelize
 data class Location(
@@ -21,6 +22,36 @@ data class Location(
     val created_at: String?,
     val updated_at: String?,
     val type: String?): Parcelable {
+}
+
+@Parcelize
+data class LocationTwo(
+    val id: String,
+    val properties: Properties?,
+    val title: String?): Parcelable {
+}
+
+@Parcelize
+data class Properties(
+    val position: Position,
+    val topogram_position: TopogramPosition?,
+    val name: Name?,
+    val city: Name?): Parcelable {
+}
+
+@Parcelize
+data class Position(
+    val default: Array<String>?): Parcelable {
+}
+
+@Parcelize
+data class Name(
+    val default:String?): Parcelable {
+}
+
+@Parcelize
+data class TopogramPosition(
+    val day: Array<String>?): Parcelable {
 }
 
 fun NetworkLocationsContainer.asDataBaseModel(): Array<LocationEntity>{
