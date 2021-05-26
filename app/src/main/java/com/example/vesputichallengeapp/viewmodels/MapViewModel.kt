@@ -22,14 +22,20 @@ class MapViewModel(application: Application): AndroidViewModel(application) {
 
     val locationsList = locationsRepository.locations
 
+    val lineFeatureList = locationsRepository.lineFeatures
+
+
     init {
+        Log.e("TEST: ","GET INFO")
         getLocationsFromServer()
     }
 
     private fun getLocationsFromServer() {
         viewModelScope.launch {
             try {
-                locationsRepository.getLocations()
+                //locationsRepository.getLocations()
+                Log.e("TEST: ","TRY")
+                locationsRepository.getLineFeatures()
             } catch (e: Exception) {
                 Log.e("ERROR: ",e.toString())
             }

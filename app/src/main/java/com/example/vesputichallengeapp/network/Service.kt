@@ -1,5 +1,6 @@
 package com.example.vesputichallengeapp.network
 
+import com.example.vesputichallengeapp.domain.LineFeature
 import com.example.vesputichallengeapp.domain.Location
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
@@ -7,7 +8,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL = "https://midgard.netzmap.com/"
+//private const val BASE_URL = "https://midgard.netzmap.com/"
+private const val BASE_URL = "https://bifroest.netzmap.com/"
+
 
 // Build Moshi objet for retrofit adding kotlin adapter for compatibility
 private val moshi = Moshi.Builder()
@@ -22,6 +25,9 @@ private val retrofit = Retrofit.Builder()
 
 // Interface to expose "getLocations" method
 interface LocationsApiService{
+
+    @GET("routed_segments.json")
+    suspend fun getLineFeatures(): List<LineFeature>
 
     @GET("features.json?app_mode=swh-mein-halle-mobil")
     suspend fun getProperties(): List<Location>
