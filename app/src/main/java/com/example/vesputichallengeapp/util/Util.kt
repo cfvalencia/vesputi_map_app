@@ -5,6 +5,7 @@ import com.example.vesputichallengeapp.database.LocationEntity
 import com.example.vesputichallengeapp.domain.Location
 import com.google.gson.JsonObject
 import com.mapbox.geojson.Feature
+import com.mapbox.geojson.LineString
 import com.mapbox.geojson.MultiPoint
 import com.mapbox.geojson.Point
 
@@ -66,15 +67,21 @@ fun featurePointsToStringValue(points: Array<Array<Double>>): String{
     return returnval
 }
 
-fun listOfFeaturesToGeometry(list: List<LineFeatureEntity>): MultiPoint{
-    val pointlist = mutableListOf<Point>()
-    list.listIterator().forEach { value ->
-        val pointArray = value.points?.split(",")?.toTypedArray()
+fun listOfSegmentsToFeaturesArray(segments: List<LineFeatureEntity>): List<Feature>{
+    val featureList = mutableListOf<Feature>()
+    segments.listIterator().forEach { segment ->
+        //create feature
+        val pointlist = mutableListOf<Point>()
+        //create geomtry
+        val pointArray = segment.points?.split(",")?.toTypedArray()
         for (i in 0 until pointArray?.size?.minus(1)!! step 2) {
+            //create the points to add to geometry
             pointlist +=createPointFromlnglat(pointArray[i].toDouble(),pointArray[i.plus(1)].toDouble())
         }
+        val geometry = LineString.fromLngLats(pointlist)
+        featureList += Feature.fromGeometry(geometry)
     }
-    return MultiPoint.fromLngLats(pointlist)
+    return featureList
 }
 
 fun createPointFromlnglat(lng: Double, lat: Double): Point{

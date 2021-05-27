@@ -1,6 +1,5 @@
 package com.example.vesputichallengeapp.ui
 
-import android.graphics.BitmapFactory
 import android.graphics.Color
 import android.graphics.PointF
 import android.os.Bundle
@@ -14,8 +13,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.example.vesputichallengeapp.R
 import com.example.vesputichallengeapp.databinding.MapFragmentViewBinding
-import com.example.vesputichallengeapp.util.listOfFeaturesToGeometry
-import com.example.vesputichallengeapp.util.locationsToFeatures
+import com.example.vesputichallengeapp.util.listOfSegmentsToFeaturesArray
 import com.example.vesputichallengeapp.viewmodels.MapViewModel
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.mapbox.geojson.*
@@ -25,11 +23,9 @@ import com.mapbox.mapboxsdk.maps.MapView
 import com.mapbox.mapboxsdk.maps.MapboxMap
 import com.mapbox.mapboxsdk.maps.OnMapReadyCallback
 import com.mapbox.mapboxsdk.maps.Style
-import com.mapbox.mapboxsdk.style.expressions.Expression.*
 import com.mapbox.mapboxsdk.style.layers.LineLayer
 import com.mapbox.mapboxsdk.style.layers.Property
 import com.mapbox.mapboxsdk.style.layers.PropertyFactory
-import com.mapbox.mapboxsdk.style.layers.SymbolLayer
 import com.mapbox.mapboxsdk.style.sources.GeoJsonSource
 
 
@@ -91,13 +87,12 @@ class MapFragment : Fragment(),MapboxMap.OnMapClickListener {
             }
         })
 
-        viewModel.lineFeatureList.observe(viewLifecycleOwner, Observer { features ->
-            features?.apply {
+        viewModel.lineFeatureList.observe(viewLifecycleOwner, Observer { segments ->
+            segments?.apply {
 
                 val featureCollection =
                     FeatureCollection.fromFeatures(
-                        arrayOf(Feature.fromGeometry(
-                            listOfFeaturesToGeometry(this))))
+                        listOfSegmentsToFeaturesArray(segments))
 
                 mapView?.getMapAsync(OnMapReadyCallback { map ->
                     map.setStyle(Style.MAPBOX_STREETS,  Style.OnStyleLoaded(){ style ->
@@ -106,6 +101,7 @@ class MapFragment : Fragment(),MapboxMap.OnMapClickListener {
 
                             if (featureCollection.features()!!.size > 0) {
 
+                                Log.e("FEATURES",featureCollection.toString())
                                 style.addSource(GeoJsonSource("line-source", featureCollection));
 
                                 // The layer properties for our line. This is where we make the line dotted, set the
@@ -113,7 +109,7 @@ class MapFragment : Fragment(),MapboxMap.OnMapClickListener {
                                 style.addLayer( LineLayer("linelayer", "line-source")
                                     .withProperties(PropertyFactory.lineCap(Property.LINE_CAP_SQUARE),
                                         PropertyFactory.lineJoin(Property.LINE_JOIN_MITER),
-                                        PropertyFactory.lineOpacity(.7f),
+                                        PropertyFactory.lineOpacity(1f),
                                         PropertyFactory.lineWidth(2f),
                                         PropertyFactory.lineColor(Color.parseColor("#ed0707"))));
                             }
